@@ -1,0 +1,6 @@
+table tr th, td {
+    text-align: center!important;
+}
+
+table tr td:not(:first-child):not(:nth-child(1)) {
+}
