@@ -2,5 +2,10 @@ table tr th, td {
     text-align: center!important;
 }
 
+table tr th, td {
+    background-color:floralwhite;
+}
+
 table tr td:not(:first-child):not(:nth-child(1)) {
 }
+

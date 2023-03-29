@@ -290,6 +290,7 @@ function SubDepartments() {
             {msgAlert}
           </Alert>
         </Collapse> */}
+        <Paper sx={{ width: '100%', overflow: 'hidden' }} style={styles.paperContent}>
         <Box style={{display: 'flex'}}>
           <IconButton 
             variant="contained"
@@ -300,7 +301,6 @@ function SubDepartments() {
             <AddIcon />
           </IconButton>
         </Box>
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
           <TableContainer sx={{}}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>

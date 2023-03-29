@@ -256,7 +256,7 @@ const Profile = ({ setUserState, username }) => {
       window.location.reload();
   }
   return (
-    <div style={{ marginTop: 10, width: '100%', maxWidth: 'auto', width: '70%' }}>
+    <div style={{ margin: 'auto', marginTop: '20px', width: '100%', maxWidth: 'auto', width: '70%' }}>
       <div style={{display: 'flex'}}>
         <Button
           variant="contained"

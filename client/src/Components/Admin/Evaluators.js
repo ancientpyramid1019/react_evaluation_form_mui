@@ -191,7 +191,7 @@ function Evaluators() {
             {msgAlert}
           </Alert>
         </Collapse> */}
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <Paper sx={{ width: '100%', overflow: 'hidden' }} style={styles.paperContent}>
           <TableContainer sx={{}}>
             <Table stickyHeader aria-label="sticky table">
               <TableHead>

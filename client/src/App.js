@@ -72,7 +72,6 @@ const App = () => {
               )
             }
           ></Route>
-
           <Route path="/admin" element={<Dashboard setUserState={setUserState} username={userstate.fname}/>} />
           <Route path="/admin/dashboard" element={<Dashboard setUserState={setUserState} username={userstate.fname}/>} />
           <Route path="/admin/main_depart" element={<Admin setUserState={setUserState} username={userstate.fname}/>} />

@@ -10,6 +10,7 @@ exports.allUsers = (req, res) => {
   console.log("req made on" + req.url);
   User.find()
     .populate('roles')
+    .populate('criteria.emp_id')
     .sort({ createdAt: -1 }) //it will find all data and show it in descending order
     .then((result) => {
       res.status(200).json(result);

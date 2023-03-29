@@ -1,5 +1,5 @@
 .App {
-  display: flex;
+  display: block;
   overflow-y: auto;
   width: 100vw;
   height: 100vh;
@@ -8,7 +8,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-color: #f0ebf8;
-  padding-top: 65px;
+  /* padding-top: 65px; */
   /* background-image: url("https://coolbackgrounds.io/images/backgrounds/index/ranger-4df6c1b6.png"); */
 }
 
@@ -320,6 +320,8 @@ button {
 /* Navbar */
 .navbar {
   display: flex;
+  position: relative!important;
+  /* margin-bottom: 25px!important; */
   justify-content: space-between;
   align-items: center;
   padding: 0.7rem 2rem;

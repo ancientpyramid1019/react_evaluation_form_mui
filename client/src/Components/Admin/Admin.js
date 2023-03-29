@@ -217,23 +217,23 @@ function Admin() {
 
   useEffect(() => {
     let newItems = [];
-      for (let i = 0; i < mainDeps.length; i++) {
-        newItems.push(
-          createData(
-            i+1, 
-            mainDeps[i].name, 
-            <>
-              <IconButton aria-label="edit" onClick={showEditDialog.bind(this, mainDeps[i]._id, mainDeps[i].name)}>
-                <EditIcon />
-              </IconButton>
-              <IconButton aria-label="delete" onClick={showConfirmDialog.bind(this, mainDeps[i]._id)}>
-                <DeleteIcon/>
-              </IconButton>
-            </>
-          )
+    for (let i = 0; i < mainDeps.length; i++) {
+      newItems.push(
+        createData(
+          i+1, 
+          mainDeps[i].name, 
+          <>
+            <IconButton aria-label="edit" onClick={showEditDialog.bind(this, mainDeps[i]._id, mainDeps[i].name)}>
+              <EditIcon />
+            </IconButton>
+            <IconButton aria-label="delete" onClick={showConfirmDialog.bind(this, mainDeps[i]._id)}>
+              <DeleteIcon/>
+            </IconButton>
+          </>
         )
-      }
-      setRows(newItems);      
+      )
+    }
+    setRows(newItems);      
   }, [mainDeps])
 
   return (
@@ -266,6 +266,7 @@ function Admin() {
             {msgAlert}
           </Alert>
         </Collapse> */}
+        <Paper sx={{ width: '100%', overflow: 'hidden' }} style={styles.paperContent}>
         <Box style={{display: 'flex'}}>
           <IconButton 
             variant="contained"
@@ -276,54 +277,53 @@ function Admin() {
             <AddIcon />
           </IconButton>
         </Box>
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-          <TableContainer sx={{}}>
-            <Table stickyHeader aria-label="sticky table">
-              <TableHead>
-                <TableRow>
-                  {columns.map((column) => (
-                    <TableCell
-                      key={column.id}
-                      align={column.align} 
-                      style={styles.primaryBackgroundColor}
-                      // style={{ minWidth: column.minWidth }}
-                    >
-                      {column.label}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows
-                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                  .map((row) => {
-                    return (
-                      <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                        {columns.map((column) => {
-                          const value = row[column.id];
-                          return (
-                            <TableCell key={column.id} align={column.align}>
-                              {column.format && typeof value === 'number'
-                                ? column.format(value)
-                                : value}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    );
-                  })}
-              </TableBody>
-            </Table>
-          </TableContainer>
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 20]}
-            component="div"
-            count={rows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+        <TableContainer sx={{}}>
+          <Table stickyHeader aria-label="sticky table">
+            <TableHead>
+              <TableRow>
+                {columns.map((column) => (
+                  <TableCell
+                    key={column.id}
+                    align={column.align} 
+                    style={styles.primaryBackgroundColor}
+                    // style={{ minWidth: column.minWidth }}
+                  >
+                    {column.label}
+                  </TableCell>
+                ))}
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows
+                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .map((row) => {
+                  return (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                      {columns.map((column) => {
+                        const value = row[column.id];
+                        return (
+                          <TableCell key={column.id} align={column.align}>
+                            {column.format && typeof value === 'number'
+                              ? column.format(value)
+                              : value}
+                          </TableCell>
+                        );
+                      })}
+                    </TableRow>
+                  );
+                })}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <TablePagination
+          rowsPerPageOptions={[5, 10, 20]}
+          component="div"
+          count={rows.length}
+          rowsPerPage={rowsPerPage}
+          page={page}
+          onPageChange={handleChangePage}
+          onRowsPerPageChange={handleChangeRowsPerPage}
+        />
         </Paper>
         <Dialog open={openAddDialog} onClose={addModalClose}>
           <DialogTitle>Add Main Department item</DialogTitle>

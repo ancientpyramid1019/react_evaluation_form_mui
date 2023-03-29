@@ -8,11 +8,7 @@ import {
   Button,
 } from "@mui/material";
 
-const styles = {
-  primaryBackgroundColor: {
-    backgroundColor: 'rgb(103, 58, 183)', 
-  },
-}
+import styles from "../styles";
 
 const Login = ({ setUserState }) => {
   const navigate = useNavigate();
